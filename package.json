@@ -1,0 +1,24 @@
+{
+  "name": "bun-rest-api-products",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun src/index.ts",
+    "dev": "bun --watch src/index.ts",
+    "migrate": "bun x --bun auth@latest migrate --yes",
+    "generate": "bun x --bun auth@latest generate --yes",
+    "db:migrate": "bun src/db/migrate.ts",
+    "auth:generate": "bun x --bun auth@latest generate --config ./src/auth.ts --output ./src/db/migrations/sql/001_create_auth_tables.sql --yes",
+    "seed": "bun src/seed.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "better-auth": "^1.7.17"
+  }
+}
